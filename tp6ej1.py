@@ -1,9 +1,19 @@
 ################
-# Martín René - @martinvilu
+# Biagini Agostina  - @AgostinaB
+# Evaraldo Adrian   - @chim20air
+# Ejercicio 1 - Anagramas
 # UNRN Andina - Introducción a la Ingenieria en Computación
 ################
 
+import tp4ej1 as inp
 from tp5ej12 import comparacion
+from time import sleep
+
+
+
+def limpiar_consola():
+    '''Funcion para limpiar la salida de la consola'''
+    print('\033[2J')
 
 
 
@@ -56,7 +66,6 @@ def normalizacion(string):
     resultado = []
     for letra in string:
         l = transformacion(letra)
-        print(l)
         resultado.append(l)
     return "".join(resultado)
 
@@ -64,14 +73,25 @@ def normalizacion(string):
 
 def principal():
     """Toda la interacción con el usuario va acá"""
-    palabra1 = 'El huevo de chocolate'
-    nor_palabra1 = normalizacion(palabra1)
-    palabra2 = 'hecho de vate locuelo'
-    nor_palabra2 = normalizacion(palabra2)
-    print(f"{palabra1}: {nor_palabra1}")
-    print(f"{palabra2}: {nor_palabra2}")
-    print(f"{comparacion(nor_palabra1, nor_palabra2)}")
+    while True:
+        limpiar_consola()
+        print("""
+En este ejercicio, se ingresan dos cadenas de
+texto y la función retorna si son anagramas.
+    Ingrese 1 para ingresar frases
+    Ingrese 2 para terminar la prueba""")
 
+        test = inp.ingreso_entero_restringido("ingrese opción", 1, 2)
+        if test == 1:
+            palabra1 = input("Ingrese primera frase: ")
+            palabra2 = input("Ingrese segunda frase: ")
+            nor_palabra1 = normalizacion(palabra1)
+            nor_palabra2 = normalizacion(palabra2)
+            resultado = comparacion(nor_palabra1,nor_palabra2)
+            print(f'La evaluación resultó: {resultado}')
+            sleep(5)
+        elif test == 2:
+            break
 
 if __name__ == "__main__":
     principal()
