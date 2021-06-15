@@ -72,6 +72,13 @@ def normalizacion(string):
 
 
 
+def anagrama(palabra1,palabra2):
+    nor_palabra1 = normalizacion(palabra1)
+    nor_palabra2 = normalizacion(palabra2)
+    return comparacion(nor_palabra1,nor_palabra2)
+
+
+
 def principal():
     """Toda la interacción con el usuario va acá"""
     while True:
@@ -86,9 +93,7 @@ texto y la función retorna si son anagramas.
         if test == 1:
             palabra1 = input("Ingrese primera frase: ")
             palabra2 = input("Ingrese segunda frase: ")
-            nor_palabra1 = normalizacion(palabra1)
-            nor_palabra2 = normalizacion(palabra2)
-            resultado = comparacion(nor_palabra1,nor_palabra2)
+            resultado = anagrama(palabra1, palabra2)
             print(f'La evaluación resultó: {resultado}')
             sleep(5)
         elif test == 2:
