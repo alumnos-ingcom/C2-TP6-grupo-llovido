@@ -65,7 +65,7 @@ def normalizacion(string):
     '''
     resultado = []
     for letra in string:
-        if ord(letra) != 32:
+        if ord(letra) != 32 and ord(letra) != ord(","):
             l = transformacion(letra)
             resultado.append(l)
     return "".join(resultado)
