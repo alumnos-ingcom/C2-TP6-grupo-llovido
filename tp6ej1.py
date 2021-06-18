@@ -99,6 +99,7 @@ texto y la función retorna si son anagramas.
         elif test == 2:
             break
 
+
+
 if __name__ == "__main__":
     principal()
-
