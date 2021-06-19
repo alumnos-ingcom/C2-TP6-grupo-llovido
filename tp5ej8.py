@@ -62,7 +62,9 @@ def codificado_cesar(texto, rotate):
     for i in range(len(texto)):
         n = ord(texto[i])
         
-        if n >= ord('0') and n <= ord('9'):
+        if n == ord("\n"):
+            valor = ord("\n")
+        elif n >= ord('0') and n <= ord('9'):
             #digitos
             valor = rotacion(n, rotate, ord('0'), ord('9'))
 
